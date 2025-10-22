@@ -22,7 +22,7 @@ dotnet build
 ```
 3) Запустити API
 ```bash
-dotnet run --project TaskManager1
+dotnet run --project TaskManager
 ```
 
 Swagger: `http://localhost:5254/swagger` HTTP
