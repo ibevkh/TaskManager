@@ -1,3 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using TaskManager.Core.Interfaces;
+using TaskManager.Core.Mappings;
+using TaskManager.Core.Services;
+using TaskManager.Infrastructure.Data;
+using TaskManager.Infrastructure.Repositories;
+
 namespace TaskManager.API
 {
     public class Program
@@ -7,6 +14,20 @@ namespace TaskManager.API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            // DbContext
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseInMemoryDatabase("Tasks")
+            );
+
+            // UnitOfWork and Repository
+            builder.Services.AddScoped<IAppUnitOfWork, AppUnitOfWork>();
+            builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+
+            // AutoMapper
+            builder.Services.AddAutoMapper(typeof(StatusMappingProfile), typeof(TaskMappingProfile));
+
+            // Services 
+            builder.Services.AddScoped<ITaskService, TaskService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
