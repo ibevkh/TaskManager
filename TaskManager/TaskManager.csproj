@@ -23,13 +23,10 @@
   <ItemGroup>
     <Folder Include="API\Controllers\" />
     <Folder Include="Core\DTOs\" />
-    <Folder Include="Core\Interfaces\" />
     <Folder Include="Core\Mappings\" />
     <Folder Include="Core\Validation\" />
     <Folder Include="Core\Services\" />
-    <Folder Include="Infrastructure\Data\" />
     <Folder Include="Infrastructure\Seed\" />
-    <Folder Include="Infrastructure\Repositories\" />
   </ItemGroup>
 
 </Project>
