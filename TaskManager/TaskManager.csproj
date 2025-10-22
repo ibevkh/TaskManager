@@ -20,8 +20,4 @@
     <PackageReference Include="URF.Core.EF" Version="8.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Infrastructure\Seed\" />
-  </ItemGroup>
-
 </Project>

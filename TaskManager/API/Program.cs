@@ -4,6 +4,7 @@ using TaskManager.Core.Mappings;
 using TaskManager.Core.Services;
 using TaskManager.Infrastructure.Data;
 using TaskManager.Infrastructure.Repositories;
+using TaskManager.Infrastructure.Seed;
 
 namespace TaskManager.API
 {
@@ -35,6 +36,13 @@ namespace TaskManager.API
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            // Seeder треба викликати після створення app
+            using (var scope = app.Services.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                DatabaseSeeder.Seed(dbContext);
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
