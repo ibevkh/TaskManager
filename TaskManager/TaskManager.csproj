@@ -22,8 +22,6 @@
 
   <ItemGroup>
     <Folder Include="API\Controllers\" />
-    <Folder Include="Core\Validation\" />
-    <Folder Include="Core\Services\" />
     <Folder Include="Infrastructure\Seed\" />
   </ItemGroup>
 
